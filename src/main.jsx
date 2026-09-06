@@ -53,7 +53,7 @@ const skills = [
   ["Azure", "Cloud"]
 ];
 
-const recipientEmail = "your-email@example.com";
+const recipientEmail = "markocariza2@gmail.com";
 
 function App() {
   const [activeFilter, setActiveFilter] = useState("All");
