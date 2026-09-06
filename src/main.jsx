@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
+import profilePhoto from "./profile-photo.png";
 
 const projects = [
   {
@@ -203,7 +204,9 @@ function App() {
             </div>
             <div className="about-grid">
               <div className="about-card">
-                <div className="avatar">MO</div>
+                <div className="avatar">
+                  <img src={profilePhoto} alt="Mark Ocariza" />
+                </div>
                 <h3>Mark Ocariza</h3>
                 <p>Application Systems Engineer / Consultant</p>
                 <div className="availability"><i></i> Available for freelance projects</div>
