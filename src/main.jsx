@@ -296,6 +296,16 @@ function App() {
               <p className="eyebrow">LET'S WORK TOGETHER</p>
               <h2>Have a system idea?</h2>
               <p>Let's turn your requirements into a clean, modern and reliable application.</p>
+              <a
+                className="linkedin-link"
+                href="https://www.linkedin.com/in/mcocariza/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit Mark Ocariza on LinkedIn"
+              >
+                <span aria-hidden="true">in</span>
+                LinkedIn Profile
+              </a>
             </div>
 
             <form className="contact-form" onSubmit={handleSubmit}>
