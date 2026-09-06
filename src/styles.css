@@ -377,6 +377,11 @@ button { font: inherit; }
   flex-wrap: wrap;
   margin-top: 18px;
 }
+.form-status {
+  color: var(--accent) !important;
+  font-size: .85rem;
+  margin-top: 12px;
+}
 button.btn {
   border: none;
   cursor: pointer;

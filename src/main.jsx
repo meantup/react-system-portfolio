@@ -53,7 +53,7 @@ const skills = [
   ["Azure", "Cloud"]
 ];
 
-const recipientEmail = "markocariza2@gmail.com";
+const formEndpoint = "https://formsubmit.co/ajax/markocariza2@gmail.com";
 
 function App() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -63,6 +63,7 @@ function App() {
     subject: "",
     message: ""
   });
+  const [submitStatus, setSubmitStatus] = useState("");
 
   const filters = ["All", "Full Stack", "Business System", "Web Application"];
   const filteredProjects =
@@ -75,7 +76,7 @@ function App() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const { email, subject, message } = formData;
@@ -84,11 +85,33 @@ function App() {
       return;
     }
 
-    const emailBody = `From: ${email}\n\n${message}`;
-    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+    setSubmitStatus("Sending...");
 
-    window.location.href = mailtoLink;
-    setFormData({ email: "", subject: "", message: "" });
+    try {
+      const response = await fetch(formEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          subject,
+          message,
+          _replyto: email,
+          _captcha: "false"
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to send inquiry");
+      }
+
+      setFormData({ email: "", subject: "", message: "" });
+      setSubmitStatus("Your inquiry was sent successfully.");
+    } catch {
+      setSubmitStatus("Unable to send your inquiry. Please try again.");
+    }
   };
 
   return (
@@ -314,6 +337,7 @@ function App() {
                 <button type="submit" className="btn primary">Send Email</button>
                 <a className="btn secondary" href="#home">Back to Top ↑</a>
               </div>
+              {submitStatus && <p className="form-status" role="status">{submitStatus}</p>}
             </form>
           </div>
         </section>
