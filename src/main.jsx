@@ -153,6 +153,13 @@ function App() {
               <div className="hero-actions">
                 <a href="#projects" className="btn primary">View Projects</a>
                 <a href="#contact" className="btn secondary">Contact Me</a>
+                <a
+                  href={`${import.meta.env.BASE_URL}resume.pdf`}
+                  className="btn secondary"
+                  download="Mark-Ocariza-Resume.pdf"
+                >
+                  Download Resume
+                </a>
               </div>
               <div className="stats">
                 <div><strong>5+</strong><span>Years Experience</span></div>
