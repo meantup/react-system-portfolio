@@ -30,7 +30,7 @@ const projects = [
     category: "Web Application",
     description: "Online pledge workflow with a browser-based interface and client-side interactions.",
     tech: ["ASP.NET 4.5", "HTML5", "JavaScript", "jQuery", "CSS"],
-    icon: "🤝"
+    icon: "💎"
   },
   {
     title: "WebServices",
