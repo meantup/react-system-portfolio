@@ -5,32 +5,60 @@ import profilePhoto from "./Ocariza_Photo.png";
 
 const projects = [
   {
-    title: "Gadget E-Commerce System",
+    title: "Online Sales System",
+    category: "Business System",
+    description: "Windows Forms sales application with reporting workflows and SAP Crystal Reports integration.",
+    tech: ["ASP.NET Framework 4.5.1", "WinForms", "SAP Crystal Reports"],
+    icon: "🧾"
+  },
+  {
+    title: "RDOperation",
     category: "Full Stack",
-    description: "A responsive gadget selling platform with product catalog, categories, brands, cart, checkout and admin management.",
-    tech: ["React.js", "ASP.NET Core", "PostgreSQL", "Docker"],
-    icon: "🛒"
+    description: "Operations-focused REST API built to support reliable data access and business workflows.",
+    tech: ["ASP.NET Core Web API", "ADO.NET"],
+    icon: "⚙️"
   },
   {
-    title: "Employee Attendance System",
-    category: "Business System",
-    description: "Employee attendance and monitoring application with dashboard, employee records, time logs and reports.",
-    tech: ["React.js", "ASP.NET Core", "SQL Server", "REST API"],
-    icon: "🕒"
-  },
-  {
-    title: "Inventory Management System",
-    category: "Business System",
-    description: "Inventory solution for managing products, stock movements, suppliers, categories and reporting.",
-    tech: ["React.js", ".NET", "PostgreSQL", "EF Core"],
-    icon: "📦"
-  },
-  {
-    title: "Real-Time Chat System",
+    title: "EPurchasing",
     category: "Web Application",
-    description: "Real-time messaging application supporting online status, rooms and instant message delivery.",
-    tech: ["React.js", "ASP.NET Core", "SignalR", "WebSocket"],
-    icon: "💬"
+    description: "Web-based purchasing application built with server-rendered MVC views and a responsive frontend.",
+    tech: ["ASP.NET MVC", "HTML5", "JavaScript", "jQuery", "CSS"],
+    icon: "🛍️"
+  },
+  {
+    title: "Online Pledge",
+    category: "Web Application",
+    description: "Online pledge workflow with a browser-based interface and client-side interactions.",
+    tech: ["ASP.NET 4.5", "HTML5", "JavaScript", "jQuery", "CSS"],
+    icon: "🤝"
+  },
+  {
+    title: "WebServices",
+    category: "Full Stack",
+    description: "C# service layer for exposing and integrating business operations through WCF web services.",
+    tech: ["C#", "WCF"],
+    icon: "🔗"
+  },
+  {
+    title: "Healthcare Nursing Work",
+    category: "Business System",
+    description: "Healthcare web applications supporting nursing and operational workflows.",
+    tech: ["VB.NET", "ASP.NET", "JavaScript"],
+    icon: "🏥"
+  },
+  {
+    title: "Healthcare VNA Maintenance",
+    category: "Business System",
+    description: "Maintenance work across healthcare applications and supporting components.",
+    tech: ["C++", "VB.NET", "ASP.NET", "JavaScript"],
+    icon: "🩺"
+  },
+  {
+    title: "Aladin",
+    category: "Full Stack",
+    description: "Java application developed with Spring Boot and supported by automated unit and mock-based testing.",
+    tech: ["Java", "Spring Boot", "JUnit 4", "JUnit 5", "Mockito", "JavaFX"],
+    icon: "☕"
   }
 ];
 
