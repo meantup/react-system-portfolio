@@ -10,12 +10,16 @@ export default async function handler(req, res) {
   }
 
   const { email, subject, message } = req.body || {};
-  const emailUser = process.env.GMAIL_USER;
-  const emailPassword = process.env.GMAIL_APP_PASSWORD;
+  const emailUser = process.env.GMAIL_USER || process.env.EMAIL_USER;
+  const emailPassword = process.env.GMAIL_APP_PASSWORD || process.env.EMAIL_PASS;
   const recipient = process.env.EMAIL_RECIPIENT || emailUser;
 
-  if (!email || !subject || !message || !emailUser || !emailPassword || !recipient) {
-    return res.status(400).json({ error: "Missing email configuration or message fields" });
+  if (!email || !subject || !message) {
+    return res.status(400).json({ error: "Missing message fields" });
+  }
+
+  if (!emailUser || !emailPassword || !recipient) {
+    return res.status(500).json({ error: "Email service is not configured" });
   }
 
   const escapeHtml = (value) => value
