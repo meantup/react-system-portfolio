@@ -10,8 +10,8 @@ export default async function handler(req, res) {
   }
 
   const { email, subject, message } = req.body || {};
-  const emailUser = process.env.GMAIL_USER || process.env.EMAIL_USER;
-  const emailPassword = process.env.GMAIL_APP_PASSWORD || process.env.EMAIL_PASS;
+  const emailUser = (process.env.GMAIL_USER || process.env.EMAIL_USER || "").trim();
+  const emailPassword = (process.env.GMAIL_APP_PASSWORD || process.env.EMAIL_PASS || "").replace(/\s/g, "");
   const recipient = process.env.EMAIL_RECIPIENT || emailUser;
 
   if (!email || !subject || !message) {
@@ -51,7 +51,11 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
-    console.error("Email sending failed:", error);
+    console.error("Email sending failed:", {
+      code: error.code,
+      responseCode: error.responseCode,
+      command: error.command
+    });
     return res.status(500).json({ error: "Error sending email" });
   }
 }
