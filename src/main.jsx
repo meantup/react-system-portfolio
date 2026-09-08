@@ -82,7 +82,7 @@ const skills = [
   ["Azure", "Cloud"]
 ];
 
-const formEndpoint = "https://formsubmit.co/ajax/markocariza2@gmail.com";
+const formEndpoint = "/api/send-email";
 
 function App() {
   const [activeFilter, setActiveFilter] = useState("All");
