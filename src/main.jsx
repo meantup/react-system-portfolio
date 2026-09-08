@@ -65,6 +65,8 @@ const projects = [
 const skills = [
   ["React.js", "Frontend"],
   ["JavaScript", "Frontend"],
+  ["Tailwind CSS", "Frontend"],
+  ["jQuery", "Frontend"],
   ["HTML5 / CSS3", "Frontend"],
   ["Java", "Backend"],
   ["Spring Boot", "Backend"],
@@ -75,6 +77,8 @@ const skills = [
   ["JUnit", "Testing"],
   ["Mockito", "Testing"],
   ["Entity Framework Core", "Data"],
+  ["Dapper", "Data"],
+  ["ADO.NET", "Data"],
   ["PostgreSQL", "Data"],
   ["SQL Server", "Data"],
   ["Docker", "DevOps"],
