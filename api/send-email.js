@@ -18,6 +18,13 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Missing email configuration or message fields" });
   }
 
+  const escapeHtml = (value) => value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -30,14 +37,17 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: emailUser,
       to: recipient,
+      replyTo: email,
       subject,
-      text: message,
-      replyTo: email
+      text: `From: ${email}\n\n${message}`,
+      html: `<p><b>From:</b> ${escapeHtml(email)}</p>
+             <p><b>Subject:</b> ${escapeHtml(subject)}</p>
+             <p><b>Message:</b> ${escapeHtml(message).replaceAll("\n", "<br>")}</p>`
     });
 
-    res.status(200).json({ success: true });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to send email" });
+    return res.status(200).json({ message: "Email sent successfully" });
+  } catch (error) {
+    console.error("Email sending failed:", error);
+    return res.status(500).json({ error: "Error sending email" });
   }
 }
